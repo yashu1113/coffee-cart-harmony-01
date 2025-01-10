@@ -10,6 +10,13 @@ export const CustomerLayout = ({ children }: { children: React.ReactNode }) => {
   const [cartOpen, setCartOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
+  const handleLoginClick = () => {
+    console.log("Login button clicked"); // Debug log
+    if (!user) {
+      setLoginOpen(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neve-background">
       <nav className="bg-neve-primary text-white p-4">
@@ -24,7 +31,7 @@ export const CustomerLayout = ({ children }: { children: React.ReactNode }) => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => user ? null : setLoginOpen(true)}
+              onClick={handleLoginClick}
             >
               <User className="h-6 w-6" />
             </Button>
