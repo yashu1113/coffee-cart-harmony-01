@@ -56,7 +56,7 @@ const Index = () => {
       <div 
         className="relative h-[50vh] bg-neve-primary flex items-center justify-center text-white"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1920&q=80')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
