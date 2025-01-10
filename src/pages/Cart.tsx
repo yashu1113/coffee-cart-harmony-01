@@ -31,12 +31,12 @@ const Cart = () => {
         </div>
         <div className="grid gap-6">
           {items.map((item) => (
-            <Card key={item.name}>
+            <Card key={item.item_id}>
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <div className="flex gap-4">
                     <img
-                      src={item.image}
+                      src={item.image_url}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded"
                     />
@@ -48,7 +48,7 @@ const Cart = () => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    onClick={() => removeFromCart(item.name)}
+                    onClick={() => removeFromCart(item.item_id)}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -60,7 +60,7 @@ const Cart = () => {
                     <Button
                       variant="outline"
                       size="icon"
-                      onClick={() => updateQuantity(item.name, item.quantity - 1)}
+                      onClick={() => updateQuantity(item.item_id, item.quantity - 1)}
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
@@ -68,13 +68,13 @@ const Cart = () => {
                     <Button
                       variant="outline"
                       size="icon"
-                      onClick={() => updateQuantity(item.name, item.quantity + 1)}
+                      onClick={() => updateQuantity(item.item_id, item.quantity + 1)}
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
                   </div>
                   <p className="text-lg font-bold text-neve-accent">
-                    ${(parseFloat(item.price.replace("$", "")) * item.quantity).toFixed(2)}
+                    ${(item.price * item.quantity).toFixed(2)}
                   </p>
                 </div>
               </CardContent>
@@ -85,7 +85,7 @@ const Cart = () => {
           <Card>
             <CardContent className="p-6">
               <p className="text-xl font-bold text-neve-primary">
-                Total: ${total}
+                Total: ${total.toFixed(2)}
               </p>
               <Button className="w-full mt-4">
                 Proceed to Checkout
