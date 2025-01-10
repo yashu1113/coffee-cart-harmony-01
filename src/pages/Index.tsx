@@ -49,7 +49,15 @@ const menuItems = [
 const Index = () => {
   return (
     <CustomerLayout>
-      <div className="relative h-[50vh] bg-neve-primary flex items-center justify-center text-white">
+      <div 
+        className="relative h-[50vh] bg-neve-primary flex items-center justify-center text-white"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to NeveCafe</h1>
