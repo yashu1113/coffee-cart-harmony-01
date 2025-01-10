@@ -7,6 +7,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import Profile from "./pages/Profile";
 import Dashboard from "./pages/admin/Dashboard";
 
 const queryClient = new QueryClient();
@@ -21,6 +23,15 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/admin"
               element={
