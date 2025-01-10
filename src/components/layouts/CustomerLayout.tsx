@@ -4,15 +4,21 @@ import { ShoppingCart, User } from "lucide-react";
 import { useState } from "react";
 import { CartDialog } from "../CartDialog";
 import { LoginDialog } from "../LoginDialog";
+import { useNavigate } from "react-router-dom";
 
 export const CustomerLayout = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [cartOpen, setCartOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
   const handleLoginClick = () => {
     console.log("Login button clicked"); // Debug log
-    setLoginOpen(true);
+    if (user) {
+      navigate("/profile");
+    } else {
+      setLoginOpen(true);
+    }
   };
 
   return (
@@ -30,6 +36,7 @@ export const CustomerLayout = ({ children }: { children: React.ReactNode }) => {
               variant="ghost"
               size="icon"
               onClick={handleLoginClick}
+              title={user ? `${user.first_name} ${user.last_name}` : "Login"}
             >
               <User className="h-6 w-6" />
             </Button>
