@@ -1,5 +1,7 @@
 import { CustomerLayout } from "@/components/layouts/CustomerLayout";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 
 const menuItems = [
   {
@@ -47,6 +49,8 @@ const menuItems = [
 ];
 
 const Index = () => {
+  const { addToCart } = useCart();
+
   return (
     <CustomerLayout>
       <div 
@@ -86,7 +90,13 @@ const Index = () => {
                 <span className="text-sm text-neve-accent/80">{item.category}</span>
               </CardHeader>
               <CardContent>
-                <p className="text-neve-text">{item.description}</p>
+                <p className="text-neve-text mb-4">{item.description}</p>
+                <Button 
+                  onClick={() => addToCart(item)}
+                  className="w-full"
+                >
+                  Add to Cart
+                </Button>
               </CardContent>
             </Card>
           ))}
