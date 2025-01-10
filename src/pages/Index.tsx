@@ -44,7 +44,7 @@ const menuItems = [
     description: "Spiced black tea with steamed milk and honey",
     price: "$4.25",
     category: "Tea",
-    image: "https://images.unsplash.com/photo-1530373239000-f4ce5928a575?w=400&h=300&q=80"
+    image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&h=300&q=80"
   }
 ];
 
