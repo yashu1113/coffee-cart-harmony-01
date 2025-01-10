@@ -7,8 +7,6 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { CartProvider } from "./contexts/CartContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Index from "./pages/Index";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/admin/Dashboard";
 
@@ -24,8 +22,6 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/cart" element={<Cart />} />
               <Route
                 path="/profile"
                 element={
