@@ -12,9 +12,7 @@ export const CustomerLayout = ({ children }: { children: React.ReactNode }) => {
 
   const handleLoginClick = () => {
     console.log("Login button clicked"); // Debug log
-    if (!user) {
-      setLoginOpen(true);
-    }
+    setLoginOpen(true);
   };
 
   return (
