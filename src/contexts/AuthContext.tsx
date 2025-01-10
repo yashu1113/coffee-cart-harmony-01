@@ -47,15 +47,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      // TODO: Implement actual API call
-      // Mock login for now
-      const mockUser = {
-        user_id: 1,
-        first_name: "John",
-        last_name: "Doe",
-        email: email,
-        role: email.includes("admin") ? "admin" : "customer",
-      };
+      // Mock login with test credentials
+      if (password !== "123456") {
+        throw new Error("Invalid credentials");
+      }
+
+      let mockUser: User;
+      
+      switch (email) {
+        case "manager@test.com":
+          mockUser = {
+            user_id: 1,
+            first_name: "Test",
+            last_name: "Manager",
+            email: email,
+            role: "admin",
+          };
+          break;
+        case "customer@test.com":
+          mockUser = {
+            user_id: 2,
+            first_name: "Test",
+            last_name: "Customer",
+            email: email,
+            role: "customer",
+          };
+          break;
+        default:
+          throw new Error("Invalid email");
+      }
 
       localStorage.setItem("token", "mock-token");
       localStorage.setItem("user", JSON.stringify(mockUser));
@@ -63,7 +83,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       toast.success("Successfully logged in!");
     } catch (error) {
       console.error("Login failed:", error);
-      toast.error("Login failed. Please try again.");
+      toast.error("Login failed. Please check your credentials and try again.");
       throw error;
     }
   };
