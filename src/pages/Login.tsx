@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +28,16 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-neve-background">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 text-neve-primary hover:text-neve-primary/90"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Button>
+        </div>
         <h1 className="text-2xl font-bold text-center mb-6 text-neve-primary">
           Welcome to NeveCafe
         </h1>
